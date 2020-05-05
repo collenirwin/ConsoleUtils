@@ -3,9 +3,9 @@
 namespace ConsoleUtils
 {
     /// <summary>
-    /// Contains <see cref="IConsole"/> extension methods
+    /// Contains <see cref="IConsole"/> extension methods for prompting
     /// </summary>
-    public static class Extensions
+    public static class PromptExtensions
     {
         /// <summary>
         /// Write a message, then read a response
