@@ -1,32 +1,27 @@
 ﻿using System;
-using System.Runtime.CompilerServices;
 
-[assembly: InternalsVisibleTo("ConsoleUtils.Tests")]
 namespace ConsoleUtils
 {
-    public class Extensions
+    public static class Extensions
     {
-        internal static Func<string> ReadLine = Console.ReadLine;
-        internal static Action<string> Write = Console.Write;
-
-        public static string Prompt(string message)
+        public static string Prompt(this IConsole console, string message)
         {
-            Write(message);
-            return ReadLine();
+            console.Write(message);
+            return console.ReadLine();
         }
 
-        public static string PromptOnNewLine(string message)
+        public static string PromptOnNewLine(this IConsole console, string message)
         {
-            return Prompt(message + Environment.NewLine);
+            return console.Prompt(message + Environment.NewLine);
         }
 
-        public static string PromptUntil(string message, Predicate<string> predicate)
+        public static string PromptUntil(this IConsole console, string message, Predicate<string> predicate)
         {
             string response;
 
             do
             {
-                response = Prompt(message);
+                response = console.Prompt(message);
             } while (!predicate(response));
 
             return response;
