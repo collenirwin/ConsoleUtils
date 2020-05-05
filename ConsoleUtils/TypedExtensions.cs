@@ -73,6 +73,7 @@ namespace ConsoleUtils
         {
             console = console ?? throw new ArgumentNullException(nameof(console));
             mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+
             return mapper(console.ReadLine());
         }
     }

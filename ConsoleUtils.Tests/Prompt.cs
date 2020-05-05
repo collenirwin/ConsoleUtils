@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace ConsoleUtils.Tests
 {
-    public class ConsoleExtensions
+    public class Prompt
     {
         [Test]
         public void Prompt_Basic_Functionality()
