@@ -60,5 +60,20 @@ namespace ConsoleUtils
             console = console ?? throw new ArgumentNullException(nameof(console));
             return double.TryParse(console.ReadLine(), out result);
         }
+
+        /// <summary>
+        /// Runs the given mapper function on the result of <see cref="IConsole.ReadLine"/>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="console">The <see cref="IConsole"/> instance to use</param>
+        /// <param name="mapper">Function to map the input to the desired type or format</param>
+        /// <exception cref="ArgumentNullException"/>
+        /// <returns>The mapped input</returns>
+        public static T ReadMapped<T>(this IConsole console, Func<string, T> mapper)
+        {
+            console = console ?? throw new ArgumentNullException(nameof(console));
+            mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+            return mapper(console.ReadLine());
+        }
     }
 }
