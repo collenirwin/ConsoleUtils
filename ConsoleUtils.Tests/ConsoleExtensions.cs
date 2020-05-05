@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System.Linq;
 
 namespace ConsoleUtils.Tests
 {
@@ -7,18 +8,20 @@ namespace ConsoleUtils.Tests
         [Test]
         public void Prompt_Basic_Functionality()
         {
-            //// arrange
-            //string message = "What's your favorite greeting? ";
-            //string output = null;
-            //string response = "Hello";
+            // arrange
+            string message = "Enter your name: ";
+            string response = "Collen";
+            var console = new TestConsole();
+            console.Input.Push(response);
 
-            //// act
-            //var actual = Extensions.Prompt(message);
+            // act
+            var actual = console.Prompt(message);
 
-            //// assert
-            //Assert.IsNotNull(output);
-            //Assert.AreEqual(output, message);
-            //Assert.AreEqual(response, actual);
+            // assert
+            Assert.AreEqual(1, console.Output.Count);
+            Assert.AreEqual(message, console.Output.First());
+
+            Assert.AreEqual(response, actual);
         }
     }
 }
