@@ -24,8 +24,8 @@ namespace ConsoleUtils
         /// <summary>
         /// Initializes a <see cref="ColorScope"/> with background and foreground colors
         /// </summary>
-        /// <param name="backColor">Value for <see cref="Console.BackgroundColor"/></param>
         /// <param name="foreColor">Value for <see cref="Console.ForegroundColor"/></param>
+        /// <param name="backColor">Value for <see cref="Console.BackgroundColor"/></param>
         public ColorScope(ConsoleColor foreColor, ConsoleColor backColor)
         {
             ForeColor = foreColor;
