@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 
+[assembly: InternalsVisibleTo("ConsoleUtils.Tests")]
 namespace ConsoleUtils
 {
     public class Extensions
